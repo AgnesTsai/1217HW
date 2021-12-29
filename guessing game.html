@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guessing Game</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="nice-select.css">
+</head>
+<body>
+	<div id="form">
+	<form class="lu">
+		<label>
+		<h2 class="coo"><br>Guessing Game</h2>
+		<br>
+		<p class="coo">Your Guess(1 ~ 100)</p>
+		<input type="text" id="guess" class="co">
+<br><br>
+		<input type="button" value="play" onclick="play()" class="Add" id="guessNum" class="submit">
+<br><br>
+		<div id="ans" class="coo" type="text">
+		<p>Result</p>
+		</div>
+		</label>
+
+	</form>
+		
+</div>
+
+	<script type="text/javascript">
+		var ans = Math.floor(Math.random() * 100 + 1);
+    		var maximum = 100;
+    		var minimum = 1;  
+   			
+
+		function play(){
+			var x = document.getElementById("guess").value;
+			if(x == ans){   
+   				alert("Bingo!"); 
+			}else if(x < ans){    
+		       minimum = x;
+		       print();
+		   }else{
+		       maximum = x;
+		       print();
+		   }
+		   document.getElementById("guess").value = "";
+		}
+   		
+		function print(){
+			
+			var y = document.createElement("div");
+			var z = document.createTextNode(minimum + "~" + maximum);
+			y.appendChild(z);
+			document.getElementById("ans").appendChild(y);
+		}
+	</script>
+</body>
+</html>
